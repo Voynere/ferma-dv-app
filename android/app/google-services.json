@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "785730628834",
+    "project_id": "fermadv",
+    "storage_bucket": "fermadv.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785730628834:android:6a45bb0606cfb716a6c2bb",
+        "android_client_info": {
+          "package_name": "com.fermancli"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmmHkSOMXpn4TrCw9HRZjYQF4QfsL2U-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

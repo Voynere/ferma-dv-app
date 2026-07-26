@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Debug-only override: тот же ресурс из src/main запрещает cleartext всюду,
+     кроме VPS Kilbil, из-за чего эмулятор не мог достучаться до Metro (10.0.2.2:8081).
+     Этот файл подхватывается только для debug-сборки и не влияет на release. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

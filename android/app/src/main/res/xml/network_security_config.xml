@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Разрешаем HTTP (cleartext) только для VPS-сервиса акций Kilbil.
+         Остальной трафик остаётся HTTPS-only (безопасно). -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">77.222.47.128</domain>
+    </domain-config>
+</network-security-config>

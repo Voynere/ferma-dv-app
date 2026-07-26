@@ -1,0 +1,39 @@
+pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
+plugins { id("com.facebook.react.settings") }
+extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
+rootProject.name = 'fermanCli'
+include ':app'
+includeBuild('../node_modules/@react-native/gradle-plugin')
+// --- Fix autolink projectDir for modules that keep Android build in /android ---
+def moduleDirs = [
+  'bam.tech_react-native-image-resizer': '../node_modules/@bam.tech/react-native-image-resizer/android',
+  'd11_react-native-fast-image': '../node_modules/@d11/react-native-fast-image/android',
+
+  'react-native-async-storage_async-storage': '../node_modules/@react-native-async-storage/async-storage/android',
+  'react-native-community_datetimepicker': '../node_modules/@react-native-community/datetimepicker/android',
+
+  'react-native-firebase_app': '../node_modules/@react-native-firebase/app/android',
+  'react-native-firebase_messaging': '../node_modules/@react-native-firebase/messaging/android',
+
+  'react-native-bootsplash': '../node_modules/react-native-bootsplash/android',
+  'react-native-fs': '../node_modules/react-native-fs/android',
+  'react-native-get-random-values': '../node_modules/react-native-get-random-values/android',
+  'react-native-get-sms-android': '../node_modules/react-native-get-sms-android/android',
+  'react-native-otp-verify': '../node_modules/react-native-otp-verify/android',
+  'react-native-push-notification': '../node_modules/react-native-push-notification/android',
+  'react-native-safe-area-context': '../node_modules/react-native-safe-area-context/android',
+  'react-native-screens': '../node_modules/react-native-screens/android',
+  'react-native-sms-retriever': '../node_modules/react-native-sms-retriever/android',
+  'react-native-splash-screen': '../node_modules/react-native-splash-screen/android',
+  'react-native-svg': '../node_modules/react-native-svg/android',
+  'react-native-vector-icons': '../node_modules/react-native-vector-icons/android',
+  'react-native-video': '../node_modules/react-native-video/android',
+  'react-native-webview': '../node_modules/react-native-webview/android',
+]
+
+moduleDirs.each { name, dir ->
+  def p = findProject(":${name}")
+  if (p != null) {
+    p.projectDir = file(dir)
+  }
+}
